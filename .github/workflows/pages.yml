@@ -1,14 +1,11 @@
 steps:
   - name: Checkout
     uses: actions/checkout@v4
-
   - name: Build (no build step required)
     run: echo "No build step: publishing repository root to Pages"
-
   - name: Upload artifact for GitHub Pages
     uses: actions/upload-pages-artifact@v1
     with:
       path: ./
-
   - name: Deploy to GitHub Pages
     uses: actions/deploy-pages@v1
