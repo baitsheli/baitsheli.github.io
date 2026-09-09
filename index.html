@@ -1,40 +1,438 @@
 <!DOCTYPE html>
 <html lang="he" dir="rtl">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="referrer" content="no-referrer-when-downgrade">
-  <title>בית שלי - חברת ניקיון בחיפה | ניקיון משרדים ודירות</title>
-  <meta name="description" content="מחפשים חברת ניקיון בחיפה? בית שלי מציעה שירותי ניקיון משרדים ודירות בחיפה והסביבה בסטנדרט הגבוה ביותר. התקשרו עכשיו!">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>בית שלי — חברת ניקיון בחיפה | ניקיון משרדים ודירות</title>
+  <meta name="description" content="בית שלי — חברת ניקיון בחיפה. שירותי ניקיון משרדים ודירות בחיפה והסביבה. צוות מקצועי, אמין ודיסקרטי. צרו קשר עכשיו.">
   <link rel="canonical" href="https://baitsheli.github.io/">
+  <meta name="referrer" content="no-referrer-when-downgrade">
+
+  <!-- Open Graph / Twitter -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="בית שלי — חברת ניקיון בחיפה">
+  <meta property="og:description" content="שירותי ניקיון משרדים ודירות בחיפה והסביבה. צוות מקצועי, אמין ודיסקרטי.">
+  <meta property="og:url" content="https://baitsheli.github.io/">
+  <meta property="og:image" content="https://baitsheli.github.io/images/og-image.jpg">
+  <meta name="twitter:card" content="summary_large_image">
+
+  <!-- LocalBusiness structured data (JSON-LD) -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "LocalBusiness",
+    "name": "בית שלי",
+    "image": "https://baitsheli.github.io/images/logo.png",
+    "@id": "https://baitsheli.github.io/",
+    "url": "https://baitsheli.github.io/",
+    "telephone": "+972549458802",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "כתובת (אם יש)",
+      "addressLocality": "חיפה",
+      "addressCountry": "IL",
+      "postalCode": "חפשו/הוסיפו"
+    },
+    "geo": {
+      "@type": "GeoCoordinates",
+      "latitude": 32.7940,
+      "longitude": 34.9896
+    },
+    "openingHoursSpecification": {
+      "@type": "OpeningHoursSpecification",
+      "dayOfWeek": ["Sunday","Monday","Tuesday","Wednesday","Thursday"],
+      "opens": "08:00",
+      "closes": "18:00"
+    },
+    "priceRange": "$",
+    "sameAs": []
+  }
+  </script>
 
   <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@400;700;900&display=swap" rel="stylesheet">
 
-  <!-- Content Security Policy (meta) - restricts what's allowed to load -->
-  <meta http-equiv="Content-Security-Policy" content="default-src 'self' https:; img-src 'self' data: https:; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; connect-src 'self' https:; frame-src https://wa.me;">
-
   <style>
-    :root {
-      --primary-color: #0056b3;
-      --text-color: #333333;
-      --bg-light: #f8f9fa;
-      --accent: #25d366;
-      --max-width: 1200px;
+    :root{
+      --accent:#25d366;
+      --primary:#0056b3;
+      --text:#222;
+      --muted:#666;
+      --card:#fff;
+      --max-w:1200px;
+    }
+    *{box-sizing:border-box}
+    html,body{margin:0;padding:0;min-height:100%;font-family:'Heebo',system-ui,-apple-system,'Segoe UI',Roboto,'Noto Sans',Arial;color:var(--text);background:#fff;overflow-x:hidden}
+    a{color:inherit;text-decoration:none}
+
+    /* Topbar with phone + whatsapp (visible on all devices) */
+    .topbar{
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      gap:12px;
+      padding:10px 16px;
+      background:linear-gradient(180deg,#fff,#f6fbff);
+      border-bottom:1px solid #eee;
+    }
+    .brand{font-weight:900;font-size:1rem}
+    .contact-inline{display:flex;gap:12px;align-items:center;direction:ltr} /* keep items LTR for phone formatting */
+    .phone{
+      display:inline-flex;
+      gap:8px;
+      align-items:center;
+      background:#f4f7fb;
+      padding:8px 10px;
+      border-radius:10px;
+      border:1px solid #e6eefc;
+      font-weight:700;
+      color:var(--primary);
+      font-size:0.95rem;
+    }
+    .phone a{direction:ltr} /* ensure link shows left-to-right content properly */
+    .wa-small{
+      display:inline-flex;
+      align-items:center;
+      gap:8px;
+      background:var(--accent);
+      color:#fff;
+      padding:8px 10px;
+      border-radius:10px;
+      font-weight:700;
+      box-shadow:0 6px 18px rgba(0,0,0,0.12);
     }
 
-    * { box-sizing: border-box; }
-    html, body { height: 100%; }
-    body {
-      margin: 0;
-      font-family: 'Heebo', system-ui, -apple-system, 'Segoe UI', Roboto, 'Noto Sans', 'Helvetica Neue', Arial;
-      color: var(--text-color);
-      background-color: #ffffff;
-      line-height: 1.6;
-      -webkit-font-smoothing: antialiased;
-      -moz-osx-font-smoothing: grayscale;
+    header.hero{
+      position:relative;
+      height:48vh;
+      min-height:240px;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      text-align:center;
+      color:#fff;
+      background-image:url('https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?q=80&w=2000&auto=format&fit=crop');
+      background-size:cover;
+      background-position:center;
+    }
+    header.hero::before{content:'';position:absolute;inset:0;background:rgba(0,0,0,0.55)}
+    .hero-content{position:relative;z-index:1;padding:12px;max-width:900px}
+    .hero h1{font-size:clamp(1.2rem,4vw,2.4rem);margin:0 0 8px;font-weight:900}
+    .hero p{font-size:clamp(0.9rem,2.2vw,1.05rem);margin:0;color:#f0f4fb}
+
+    main{max-width:var(--max-w);margin:0 auto;padding:18px}
+    .section{display:flex;gap:20px;align-items:center;flex-wrap:wrap;padding:36px 8px}
+    .section-bg{background:#f8f9fa;padding:24px;border-radius:10px}
+    .text-box{flex:1 1 320px;min-width:220px}
+    .image-box{flex:1 1 320px;min-width:220px}
+    .image-box img{width:100%;height:auto;border-radius:12px;display:block}
+    h2{color:var(--primary);font-size:1.4rem;margin:0 0 8px}
+    p.lead{color:var(--muted);margin:0 0 10px}
+
+    footer{padding:18px;text-align:center;color:var(--muted);font-size:0.95rem}
+
+    /* Floating WhatsApp button (always visible) */
+    .whatsapp-float{
+      position:fixed;
+      right:14px;
+      bottom:14px;
+      width:56px;height:56px;background:var(--accent);color:#fff;border-radius:50%;display:inline-flex;align-items:center;justify-content:center;z-index:9999;box-shadow:0 10px 30px rgba(0,0,0,0.14)
+    }
+    .whatsapp-float svg{width:30px;height:30px}
+
+    @media (max-width:768px){
+      .topbar{padding:8px}
+      .phone{padding:7px 9px;font-size:0.95rem}
+      .wa-small{padding:7px 9px;font-size:0.95rem}
+      header.hero{height:44vh}
+      .whatsapp-float{right:12px;bottom:12px;width:52px;height:52px}
+      .section{padding:20px 8px}
+    }
+    @media (max-width:420px){
+      .brand{font-size:0.95rem}
+      .phone{font-size:0.9rem}
+      .hero h1{font-size:1.2rem}
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Topbar: brand on left (in RTL it's at right), contact block at left side visually -->
+  <div class="topbar" role="banner">
+    <div class="brand">בית שלי</div>
+
+    <!-- контактный блок: left-to-right direction so number displays correctly -->
+    <div class="contact-inline" aria-hidden="false">
+      <!-- Phone: dir="ltr" ensures proper left-to-right rendering of digits inside RTL page -->
+      <div class="phone" aria-label="טלפון להזמנות">
+        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.86 19.86 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6A19.86 19.86 0 0 1 3.08 4.18 2 2 0 0 1 5 2h3a2 2 0 0 1 2 1.72c.12 1.07.4 2.12.82 3.12a2 2 0 0 1-.45 2.11L9.91 11.09a16 16 0 0 0 6 6l1.13-1.13a2 2 0 0 1 2.11-.45c1 .42 2.05.7 3.12.82A2 2 0 0 1 22 16.92z" fill="currentColor"/></svg>
+        <!-- show number LTR so digits are not mirrored in RTL context -->
+        <a href="tel:+972549458802" style="direction:ltr;display:inline-block;">+972 54-945-8802</a>
+      </div>
+
+      <!-- small WhatsApp inline (optional quick action on desktop) -->
+      <a class="wa-small" href="https://wa.me/972549458802" target="_blank" rel="noopener noreferrer" aria-label="צור קשר בוואטסאפ">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" width="16" height="16" aria-hidden="true"><path fill="currentColor" d="M380.9 97.1C339 55.1 283.2 32 223.9 32c-122.4 0-222 99.6-222 222 0 39.1 10.2 77.3 29.6 111L0 480l117.7-30.9c32.4 17.7 68.9 27 106.1 27h.1c122.3 0 224.1-99.6 224.1-222 0-59.3-25.2-115-67.1-157.1z"/></svg>
+        צור וואטסאפ
+      </a>
+    </div>
+  </div>
+
+  <header class="hero" role="banner">
+    <div class="hero-content">
+      <h1>חברת ניקיון בחיפה - סטנדרט שעוד לא הכרתם</h1>
+      <p class="lead">שירותי ניקיון משרדים ודירות בחיפה והסביבה. צוות מקצועי, אמין ודיסקרטי.</p>
+    </div>
+  </header>
+
+  <main role="main">
+    <section class="section" aria-labelledby="offices-heading">
+      <div class="text-box">
+        <h2 id="offices-heading">ניקיון משרדים בחיפה והסביבה</h2>
+        <p class="lead">סביבת עבודה נקייה תורמת לפרודוקטיביות. אנו מציעים ניקיון משרדי מוסדי: ניקוי עמוק, תחזוקה שוטפת, דישון שטיחים ועבודה בהתאמה לפי שעות פעילות העסק.</p>
+      </div>
+      <div class="image-box"><img src="https://images.unsplash.com/photo-1497366216548-37526070297c?q=80&w=1000&auto=format&fit=crop" alt="ניקיון משרדים" loading="lazy"></div>
+    </section>
+
+    <section class="section section-bg" aria-labelledby="home-heading">
+      <div class="image-box"><img src="https://images.unsplash.com/photo-1584622650111-993a426fbf0a?q=80&w=1000&auto=format&fit=crop" alt="ניקיון דירות" loading="lazy"></div>
+      <div class="text-box">
+        <h2 id="home-heading">ניקיון דירות בחיפה</h2>
+        <p class="lead">ניקיון יסודי לדירות — שוטף או ניקיון ספציפי לפני כניסה/אחרי שיפוץ. חומרים איכותיים וצוותים מקצועיים.</p>
+      </div>
+    </section>
+  </main>
+
+  <!-- Floating WhatsApp button (always visible on mobile and desktop) -->
+  <a class="whatsapp-float" href="https://wa.me/972549458802" target="_blank" rel="noopener noreferrer" aria-label="שלח הודעה בוואטסאפ">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" aria-hidden="true"><path fill="currentColor" d="M380.9 97.1C339 55.1 283.2 32 223.9 32c-122.4 0-222 99.6-222 222 0 39.1 10.2 77.3 29.6 111L0 480l117.7-30.9c32.4 17.7 68.9 27 106.1 27h.1c122.3 0 224.1-99.6 224.1-222 0-59.3-25.2-115-67.1-157.1z"/></svg>
+  </a>
+
+  <footer role="contentinfo">
+    <p>© בית שלי — כל הזכויות שמורות</p>
+  </footer>
+
+</body>
+</html><!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>בית שלי — חברת ניקיון בחיפה | ניקיון משרדים ודירות</title>
+  <meta name="description" content="בית שלי — חברת ניקיון בחיפה. שירותי ניקיון משרדים ודירות בחיפה והסביבה. צוות מקצועי, אמין ודיסקרטי. צרו קשר עכשיו.">
+  <link rel="canonical" href="https://baitsheli.github.io/">
+  <meta name="referrer" content="no-referrer-when-downgrade">
+
+  <!-- Open Graph / Twitter -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="בית שלי — חברת ניקיון בחיפה">
+  <meta property="og:description" content="שירותי ניקיון משרדים ודירות בחיפה והסביבה. צוות מקצועי, אמין ודיסקרטי.">
+  <meta property="og:url" content="https://baitsheli.github.io/">
+  <meta property="og:image" content="https://baitsheli.github.io/images/og-image.jpg">
+  <meta name="twitter:card" content="summary_large_image">
+
+  <!-- LocalBusiness structured data (JSON-LD) -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "LocalBusiness",
+    "name": "בית שלי",
+    "image": "https://baitsheli.github.io/images/logo.png",
+    "@id": "https://baitsheli.github.io/",
+    "url": "https://baitsheli.github.io/",
+    "telephone": "+972549458802",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "כתובת (אם יש)",
+      "addressLocality": "חיפה",
+      "addressCountry": "IL",
+      "postalCode": "חפשו/הוסיפו"
+    },
+    "geo": {
+      "@type": "GeoCoordinates",
+      "latitude": 32.7940,
+      "longitude": 34.9896
+    },
+    "openingHoursSpecification": {
+      "@type": "OpeningHoursSpecification",
+      "dayOfWeek": ["Sunday","Monday","Tuesday","Wednesday","Thursday"],
+      "opens": "08:00",
+      "closes": "18:00"
+    },
+    "priceRange": "$",
+    "sameAs": []
+  }
+  </script>
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@400;700;900&display=swap" rel="stylesheet">
+
+  <style>
+    :root{
+      --accent:#25d366;
+      --primary:#0056b3;
+      --text:#222;
+      --muted:#666;
+      --card:#fff;
+      --max-w:1200px;
+    }
+    *{box-sizing:border-box}
+    html,body{margin:0;padding:0;min-height:100%;font-family:'Heebo',system-ui,-apple-system,'Segoe UI',Roboto,'Noto Sans',Arial;color:var(--text);background:#fff;overflow-x:hidden}
+    a{color:inherit;text-decoration:none}
+
+    /* Topbar with phone + whatsapp (visible on all devices) */
+    .topbar{
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      gap:12px;
+      padding:10px 16px;
+      background:linear-gradient(180deg,#fff,#f6fbff);
+      border-bottom:1px solid #eee;
+    }
+    .brand{font-weight:900;font-size:1rem}
+    .contact-inline{display:flex;gap:12px;align-items:center;direction:ltr} /* keep items LTR for phone formatting */
+    .phone{
+      display:inline-flex;
+      gap:8px;
+      align-items:center;
+      background:#f4f7fb;
+      padding:8px 10px;
+      border-radius:10px;
+      border:1px solid #e6eefc;
+      font-weight:700;
+      color:var(--primary);
+      font-size:0.95rem;
+    }
+    .phone a{direction:ltr} /* ensure link shows left-to-right content properly */
+    .wa-small{
+      display:inline-flex;
+      align-items:center;
+      gap:8px;
+      background:var(--accent);
+      color:#fff;
+      padding:8px 10px;
+      border-radius:10px;
+      font-weight:700;
+      box-shadow:0 6px 18px rgba(0,0,0,0.12);
+    }
+
+    header.hero{
+      position:relative;
+      height:48vh;
+      min-height:240px;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      text-align:center;
+      color:#fff;
+      background-image:url('https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?q=80&w=2000&auto=format&fit=crop');
+      background-size:cover;
+      background-position:center;
+    }
+    header.hero::before{content:'';position:absolute;inset:0;background:rgba(0,0,0,0.55)}
+    .hero-content{position:relative;z-index:1;padding:12px;max-width:900px}
+    .hero h1{font-size:clamp(1.2rem,4vw,2.4rem);margin:0 0 8px;font-weight:900}
+    .hero p{font-size:clamp(0.9rem,2.2vw,1.05rem);margin:0;color:#f0f4fb}
+
+    main{max-width:var(--max-w);margin:0 auto;padding:18px}
+    .section{display:flex;gap:20px;align-items:center;flex-wrap:wrap;padding:36px 8px}
+    .section-bg{background:#f8f9fa;padding:24px;border-radius:10px}
+    .text-box{flex:1 1 320px;min-width:220px}
+    .image-box{flex:1 1 320px;min-width:220px}
+    .image-box img{width:100%;height:auto;border-radius:12px;display:block}
+    h2{color:var(--primary);font-size:1.4rem;margin:0 0 8px}
+    p.lead{color:var(--muted);margin:0 0 10px}
+
+    footer{padding:18px;text-align:center;color:var(--muted);font-size:0.95rem}
+
+    /* Floating WhatsApp button (always visible) */
+    .whatsapp-float{
+      position:fixed;
+      right:14px;
+      bottom:14px;
+      width:56px;height:56px;background:var(--accent);color:#fff;border-radius:50%;display:inline-flex;align-items:center;justify-content:center;z-index:9999;box-shadow:0 10px 30px rgba(0,0,0,0.14)
+    }
+    .whatsapp-float svg{width:30px;height:30px}
+
+    @media (max-width:768px){
+      .topbar{padding:8px}
+      .phone{padding:7px 9px;font-size:0.95rem}
+      .wa-small{padding:7px 9px;font-size:0.95rem}
+      header.hero{height:44vh}
+      .whatsapp-float{right:12px;bottom:12px;width:52px;height:52px}
+      .section{padding:20px 8px}
+    }
+    @media (max-width:420px){
+      .brand{font-size:0.95rem}
+      .phone{font-size:0.9rem}
+      .hero h1{font-size:1.2rem}
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Topbar: brand on left (in RTL it's at right), contact block at left side visually -->
+  <div class="topbar" role="banner">
+    <div class="brand">בית שלי</div>
+
+    <!-- контактный блок: left-to-right direction so number displays correctly -->
+    <div class="contact-inline" aria-hidden="false">
+      <!-- Phone: dir="ltr" ensures proper left-to-right rendering of digits inside RTL page -->
+      <div class="phone" aria-label="טלפון להזמנות">
+        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.86 19.86 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6A19.86 19.86 0 0 1 3.08 4.18 2 2 0 0 1 5 2h3a2 2 0 0 1 2 1.72c.12 1.07.4 2.12.82 3.12a2 2 0 0 1-.45 2.11L9.91 11.09a16 16 0 0 0 6 6l1.13-1.13a2 2 0 0 1 2.11-.45c1 .42 2.05.7 3.12.82A2 2 0 0 1 22 16.92z" fill="currentColor"/></svg>
+        <!-- show number LTR so digits are not mirrored in RTL context -->
+        <a href="tel:+972549458802" style="direction:ltr;display:inline-block;">+972 54-945-8802</a>
+      </div>
+
+      <!-- small WhatsApp inline (optional quick action on desktop) -->
+      <a class="wa-small" href="https://wa.me/972549458802" target="_blank" rel="noopener noreferrer" aria-label="צור קשר בוואטסאפ">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" width="16" height="16" aria-hidden="true"><path fill="currentColor" d="M380.9 97.1C339 55.1 283.2 32 223.9 32c-122.4 0-222 99.6-222 222 0 39.1 10.2 77.3 29.6 111L0 480l117.7-30.9c32.4 17.7 68.9 27 106.1 27h.1c122.3 0 224.1-99.6 224.1-222 0-59.3-25.2-115-67.1-157.1z"/></svg>
+        צור וואטסאפ
+      </a>
+    </div>
+  </div>
+
+  <header class="hero" role="banner">
+    <div class="hero-content">
+      <h1>חברת ניקיון בחיפה - סטנדרט שעוד לא הכרתם</h1>
+      <p class="lead">שירותי ניקיון משרדים ודירות בחיפה והסביבה. צוות מקצועי, אמין ודיסקרטי.</p>
+    </div>
+  </header>
+
+  <main role="main">
+    <section class="section" aria-labelledby="offices-heading">
+      <div class="text-box">
+        <h2 id="offices-heading">ניקיון משרדים בחיפה והסביבה</h2>
+        <p class="lead">סביבת עבודה נקייה תורמת לפרודוקטיביות. אנו מציעים ניקיון משרדי מוסדי: ניקוי עמוק, תחזוקה שוטפת, דישון שטיחים ועבודה בהתאמה לפי שעות פעילות העסק.</p>
+      </div>
+      <div class="image-box"><img src="https://images.unsplash.com/photo-1497366216548-37526070297c?q=80&w=1000&auto=format&fit=crop" alt="ניקיון משרדים" loading="lazy"></div>
+    </section>
+
+    <section class="section section-bg" aria-labelledby="home-heading">
+      <div class="image-box"><img src="https://images.unsplash.com/photo-1584622650111-993a426fbf0a?q=80&w=1000&auto=format&fit=crop" alt="ניקיון דירות" loading="lazy"></div>
+      <div class="text-box">
+        <h2 id="home-heading">ניקיון דירות בחיפה</h2>
+        <p class="lead">ניקיון יסודי לדירות — שוטף או ניקיון ספציפי לפני כניסה/אחרי שיפוץ. חומרים איכותיים וצוותים מקצועיים.</p>
+      </div>
+    </section>
+  </main>
+
+  <!-- Floating WhatsApp button (always visible on mobile and desktop) -->
+  <a class="whatsapp-float" href="https://wa.me/972549458802" target="_blank" rel="noopener noreferrer" aria-label="שלח הודעה בוואטסאפ">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" aria-hidden="true"><path fill="currentColor" d="M380.9 97.1C339 55.1 283.2 32 223.9 32c-122.4 0-222 99.6-222 222 0 39.1 10.2 77.3 29.6 111L0 480l117.7-30.9c32.4 17.7 68.9 27 106.1 27h.1c122.3 0 224.1-99.6 224.1-222 0-59.3-25.2-115-67.1-157.1z"/></svg>
+  </a>
+
+  <footer role="contentinfo">
+    <p>© בית שלי — כל הזכויות שמורות</p>
+  </footer>
+
+</body>
+</html>      -moz-osx-font-smoothing: grayscale;
     }
 
     a { color: inherit; }
